@@ -4,6 +4,7 @@ import { PORT } from './config/env.js';
 import authRouter from './routes/auth.routes.js';
 import userRouter from './routes/user.routes.js';
 import subscriptionRouter from './routes/subscription.routes.js';
+import connectToDatabase from './database/mongodb.js';
 
 
 const app = express();
@@ -26,9 +27,11 @@ app.get('/', (req, res) => {
 /**
  * This is the entry point of the application.
  * It listens to port 3000 and logs the message to the console.
+ * It also connects to the database.
  */
-app.listen(PORT, () => {
-  console.log(`Subscription Tracker is running on http://localhost:${PORT}`);
+app.listen(PORT, async () => {
+    console.log(`Subscription Tracker is running on http://localhost:${PORT}`);
+    await connectToDatabase();
 });
 
 export default app;

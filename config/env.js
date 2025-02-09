@@ -15,4 +15,10 @@ config({ path: `.env.${process.env.NODE_ENV || "development"}.local` });
  * @property {string} NODE_ENV - Environment
  * @see {@link https://nodejs.org/api/process.html#process_process_env|process.env}
  */
-export const { PORT, NODE_ENV, DB_URI } = process.env;
+export const {
+    PORT,
+    NODE_ENV,
+    DB_URI,
+    JWT_SECRET,
+    JWT_EXPIRES_IN,
+} = process.env;
